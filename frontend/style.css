@@ -212,6 +212,22 @@ footer {
     opacity: 0.8;
 }
 
+.team-section {
+    margin-bottom: 15px;
+}
+
+.team-section h3 {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.team-section p {
+    color: white;
+    margin: 0;
+    font-weight: bold;
+}
+
 .loading {
     display: inline-block;
     width: 20px;
