@@ -24,9 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // API base URL - adjust this based on where your backend is running
     // For local development: 'http://localhost:5000'
     // For deployment: your deployed backend URL
+    // Example deployed backend URLs:
+    // - Render: 'https://your-app-name.onrender.com'
+    // - Railway: 'https://your-app-name.up.railway.app'
+    // - Heroku: 'https://your-app-name.herokuapp.com'
     const API_BASE_URL = window.location.hostname === 'localhost' ?
         'http://localhost:5000' :
-        'YOUR_DEPLOYED_BACKEND_URL_HERE'; // Replace with your actual deployed backend URL
+        'https://aqimc-encryption-backend.onrender.com'; // Update this to your actual deployed backend URL
 
     // Encrypt button event listener
     encryptBtn.addEventListener('click', async function() {
