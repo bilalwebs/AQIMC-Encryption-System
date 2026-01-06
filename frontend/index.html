@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQIMC Encryption System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Adaptive Quantum-Inspired Multi-Layer Cipher (AQIMC)</h1>
+            <p>A secure, educational encryption system with four-layer protection</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="plaintext">Plaintext:</label>
+                    <textarea id="plaintext" placeholder="Enter your plaintext here..."></textarea>
+                </div>
+
+                <div class="keys-container">
+                    <div class="key-group">
+                        <label for="key1">Key 1 (DKSS):</label>
+                        <input type="text" id="key1" placeholder="Enter key for Layer 1">
+                    </div>
+
+                    <div class="key-group">
+                        <label for="key2">Key 2 (NRPE):</label>
+                        <input type="text" id="key2" placeholder="Enter key for Layer 2">
+                    </div>
+
+                    <div class="key-group">
+                        <label for="key3">Key 3 (VBMD):</label>
+                        <input type="text" id="key3" placeholder="Enter key for Layer 3">
+                    </div>
+
+                    <div class="key-group">
+                        <label for="key4">Key 4 (KDPP):</label>
+                        <input type="text" id="key4" placeholder="Enter key for Layer 4">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="encryptBtn" class="btn encrypt-btn">Encrypt</button>
+                    <button id="decryptBtn" class="btn decrypt-btn">Decrypt</button>
+                    <button id="clearBtn" class="btn clear-btn">Clear</button>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="output-group">
+                    <label for="ciphertext">Ciphertext:</label>
+                    <textarea id="ciphertext" placeholder="Encrypted text will appear here..." readonly></textarea>
+                </div>
+
+                <div class="output-group">
+                    <label for="decryptedText">Decrypted Text:</label>
+                    <textarea id="decryptedText" placeholder="Decrypted text will appear here..." readonly></textarea>
+                </div>
+            </div>
+
+            <div class="visualization-section">
+                <h3>Encryption Process Visualization</h3>
+                <div class="visualization-container">
+                    <div class="step">
+                        <div class="step-header">
+                            <h4>Layer 1: DKSS (Dynamic Key-Shift Substitution)</h4>
+                        </div>
+                        <div class="step-info">Input: <span id="dkss-input">-</span> → Output: <span id="dkss-output">-</span></div>
+                        <div class="step-content">Formula: Cᵢ = (Pᵢ + K₁[i mod |K₁|] + i) mod 26</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <h4>Layer 2: NRPE (Non-Linear Relational Pair Encoding)</h4>
+                        </div>
+                        <div class="step-info">Input: <span id="nrpe-input">-</span> → Output: <span id="nrpe-output">-</span></div>
+                        <div class="step-content">Formula: C₁ = (a + 2b) mod 26, C₂ = |a - b|</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <h4>Layer 3: VBMD (Variable Block Matrix Diffusion)</h4>
+                        </div>
+                        <div class="step-info">Input: <span id="vbmd-input">-</span> → Output: <span id="vbmd-output">-</span></div>
+                        <div class="step-content">Formula: C = K₃ × P (mod 26)</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <h4>Layer 4: KDPP (Key-Driven Positional Permutation)</h4>
+                        </div>
+                        <div class="step-info">Input: <span id="kdpp-input">-</span> → Output: <span id="kdpp-output">-</span></div>
+                        <div class="step-content">Method: Permute final ciphertext positions using key K₄</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>AQIMC Encryption System - Academic Project | Final Year Project</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
