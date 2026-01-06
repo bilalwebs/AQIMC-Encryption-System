@@ -22,7 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const kdppOutput = document.getElementById('kdpp-output');
 
     // API base URL - adjust this based on where your backend is running
-    const API_BASE_URL = 'http://localhost:5000';
+    // For local development: 'http://localhost:5000'
+    // For deployment: your deployed backend URL
+    const API_BASE_URL = window.location.hostname === 'localhost' ?
+        'http://localhost:5000' :
+        'YOUR_DEPLOYED_BACKEND_URL_HERE'; // Replace with your actual deployed backend URL
 
     // Encrypt button event listener
     encryptBtn.addEventListener('click', async function() {

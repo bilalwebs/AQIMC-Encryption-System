@@ -203,19 +203,45 @@ This system is ideal for:
 3. Address potential vulnerabilities
 4. Propose future improvements
 
-## Troubleshooting
+## Deployment
 
-### Common Issues:
-1. **Invalid Key Error**: Make sure all keys contain only alphabetic characters (A-Z)
-2. **CORS Error**: Ensure the backend server is running when using the frontend
-3. **Decryption Failure**: Verify you're using the exact same keys used for encryption
+### Deploying to Vercel (Frontend Only)
 
-### Running the System:
-1. Make sure Python is installed on your system
-2. Install dependencies with `pip install -r requirements.txt`
-3. Start the backend server: `cd backend && python app.py`
-4. Open `frontend/index.html` in your web browser
-5. Use the interface to encrypt/decrypt messages
+To deploy the frontend to Vercel:
+
+1. Update the API endpoint in `frontend/script.js` to point to your deployed backend:
+   ```javascript
+   const API_BASE_URL = 'https://your-backend.onrender.com'; // Replace with your actual backend URL
+   ```
+
+2. Add the `vercel.json` file to configure static hosting
+
+3. Deploy to Vercel using the Vercel CLI or GitHub integration
+
+### Backend Deployment Options
+
+The backend needs to be deployed separately. Options include:
+
+1. **Render.com**:
+   - Create a new web service
+   - Connect to your GitHub repository
+   - Set build command: `pip install -r requirements.txt`
+   - Set start command: `python backend/app.py`
+
+2. **Heroku**:
+   - Create a new app
+   - Connect to GitHub
+   - Deploy manually or enable automatic deploys
+
+3. **Railway**:
+   - Import your GitHub repository
+   - Add requirements.txt for dependencies
+   - Deploy the backend service
+
+### Important Notes for Deployment:
+- The frontend and backend must be deployed separately
+- Update the API URL in frontend to match your deployed backend
+- Ensure CORS is properly configured for cross-origin requests
 
 ## Future Improvements
 
