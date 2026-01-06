@@ -143,6 +143,54 @@ You need to provide 4 different keys for the 4-layer encryption:
 - **For decryption**: You must use exactly the same 4 keys that were used for encryption
 - **Case insensitive**: The system handles both uppercase and lowercase input
 
+## Running Locally
+
+### Prerequisites:
+1. Python 3.7+ installed on your system
+2. Node.js (for Vercel CLI, optional)
+
+### Setup Instructions:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bilalwebs/AQIMC-Encryption-System.git
+   cd AQIMC-Encryption-System
+   ```
+
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Start the backend server:
+   ```bash
+   cd backend
+   python app.py
+   ```
+   The backend will start on `http://localhost:5000`
+
+4. Open the frontend:
+   - Open `frontend/index.html` in your web browser directly
+   - Or use a local server like `python -m http.server` in the project root
+
+### For Development:
+- The frontend automatically detects `localhost` and connects to `http://localhost:5000`
+- Make sure the backend server is running before using the frontend
+- Both uppercase and lowercase input are supported
+
+## Troubleshooting
+
+### Common Issues:
+1. **"Failed to fetch" Error**: Make sure the backend server is running on port 5000
+2. **Invalid Key Error**: Make sure all keys contain only alphabetic characters (A-Z, a-z)
+3. **CORS Error**: Backend should have CORS enabled (already configured)
+4. **Decryption Failure**: Verify you're using the exact same keys used for encryption
+
+### To Verify Backend is Working:
+1. Start the backend server
+2. Visit `http://localhost:5000/` in your browser
+3. You should see API information
+4. Test with: `curl http://localhost:5000/test`
+
 ## Example Usage
 
 **Plaintext**: `HELLO`

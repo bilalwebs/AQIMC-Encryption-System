@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // - Render: 'https://your-app-name.onrender.com'
     // - Railway: 'https://your-app-name.up.railway.app'
     // - Heroku: 'https://your-app-name.herokuapp.com'
-    const API_BASE_URL = window.location.hostname === 'localhost' ?
+    const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ?
         'http://localhost:5000' :
-        'https://your-actual-deployed-backend-url.com'; // Replace with your actual deployed backend URL
+        'https://your-actual-deployed-backend-url.com'; // Replace with your actual deployed backend URL after deployment
 
     // Encrypt button event listener
     encryptBtn.addEventListener('click', async function() {
@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             });
 
+            // Check if response is ok before parsing JSON
+            if (!response.ok) {
+                const errorResult = await response.json().catch(() => ({}));
+                throw new Error(errorResult.error || `HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
 
             if (result.success) {
@@ -81,7 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError(result.error || 'Encryption failed');
             }
         } catch (error) {
-            showError('Error connecting to server: ' + error.message);
+            console.error('Encryption error:', error);
+            if (error.message.includes('Failed to fetch')) {
+                showError('Cannot connect to server. Make sure the backend is running on ' + API_BASE_URL);
+            } else {
+                showError('Error connecting to server: ' + error.message);
+            }
         } finally {
             hideLoading(encryptBtn, 'Encrypt');
         }
@@ -121,6 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             });
 
+            // Check if response is ok before parsing JSON
+            if (!response.ok) {
+                const errorResult = await response.json().catch(() => ({}));
+                throw new Error(errorResult.error || `HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
 
             if (result.success) {
@@ -130,7 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError(result.error || 'Decryption failed');
             }
         } catch (error) {
-            showError('Error connecting to server: ' + error.message);
+            console.error('Decryption error:', error);
+            if (error.message.includes('Failed to fetch')) {
+                showError('Cannot connect to server. Make sure the backend is running on ' + API_BASE_URL);
+            } else {
+                showError('Error connecting to server: ' + error.message);
+            }
         } finally {
             hideLoading(decryptBtn, 'Decrypt');
         }
