@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // - Heroku: 'https://your-app-name.herokuapp.com'
     const API_BASE_URL = window.location.hostname === 'localhost' ?
         'http://localhost:5000' :
-        'https://aqimc-encryption-backend.onrender.com'; // Update this to your actual deployed backend URL
+        'https://your-actual-deployed-backend-url.com'; // Replace with your actual deployed backend URL
 
     // Encrypt button event listener
     encryptBtn.addEventListener('click', async function() {
-        const text = plaintext.value.trim();
-        const k1 = key1.value.trim();
-        const k2 = key2.value.trim();
-        const k3 = key3.value.trim();
-        const k4 = key4.value.trim();
+        const text = plaintext.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k1 = key1.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k2 = key2.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k3 = key3.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k4 = key4.value.trim().toUpperCase(); // Convert to uppercase for consistency
 
         if (!text) {
             showError('Please enter plaintext to encrypt');
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Decrypt button event listener
     decryptBtn.addEventListener('click', async function() {
         const text = ciphertext.value.trim();
-        const k1 = key1.value.trim();
-        const k2 = key2.value.trim();
-        const k3 = key3.value.trim();
-        const k4 = key4.value.trim();
+        const k1 = key1.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k2 = key2.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k3 = key3.value.trim().toUpperCase(); // Convert to uppercase for consistency
+        const k4 = key4.value.trim().toUpperCase(); // Convert to uppercase for consistency
 
         if (!text) {
             showError('Please enter ciphertext to decrypt');

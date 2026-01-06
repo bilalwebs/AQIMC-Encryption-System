@@ -23,7 +23,7 @@ def validate_text(text):
     if not isinstance(text, str) or len(text) == 0:
         return False, "Text must be a non-empty string"
 
-    # Allow only letters and spaces
+    # Allow uppercase/lowercase letters and spaces
     if not re.match(r'^[A-Za-z\s]*$', text):
         return False, "Text can only contain letters and spaces"
 
@@ -35,6 +35,7 @@ def validate_key(key):
     if not isinstance(key, str) or len(key) == 0:
         return False, "Key must be a non-empty string"
 
+    # Allow uppercase/lowercase letters
     if not re.match(r'^[A-Za-z]+$', key):
         return False, "Key can only contain alphabetic characters"
 

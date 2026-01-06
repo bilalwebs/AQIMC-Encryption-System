@@ -24,6 +24,7 @@ class AQIMC:
 
     def _text_to_numbers(self, text: str) -> List[int]:
         """Convert text to numbers (A=0, B=1, ..., Z=25)"""
+        # Convert to uppercase for consistent processing
         return [ord(char.upper()) - ord('A') for char in text if char.isalpha()]
 
     def _numbers_to_text(self, numbers: List[int]) -> str:

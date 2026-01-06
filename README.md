@@ -99,48 +99,49 @@ The API will start on `http://localhost:5000`
 
 ### 1. Plaintext Input
 - This is the text you want to encrypt
-- Example: "HELLO" or "MY NAME IS AHMAD"
-- Only letters (A-Z) and spaces are allowed
-- Write your message in English capital letters
+- Example: "HELLO" or "my name is ahmad" (both uppercase and lowercase supported)
+- Only letters (A-Z, a-z) and spaces are allowed
+- The system will automatically convert lowercase to uppercase for processing
 
 ### 2. The Four Keys (Very Important!)
 You need to provide 4 different keys for the 4-layer encryption:
 
 - **Key 1 (DKSS)**: For Dynamic Key-Shift Substitution
-  - Example: "KEYA", "SECRET", "MYPASS"
-  - Must contain only letters (A-Z), no numbers or symbols
+  - Example: "KEYA", "secret", "MyPass" (both uppercase and lowercase supported)
+  - Must contain only letters (A-Z, a-z), no numbers or symbols
 
 - **Key 2 (NRPE)**: For Non-Linear Relational Pair Encoding
-  - Example: "KEYB", "MAGIC", "CODE2"
-  - Must contain only letters (A-Z), no numbers or symbols
+  - Example: "KEYB", "magic", "Code2" (both uppercase and lowercase supported)
+  - Must contain only letters (A-Z, a-z), no numbers or symbols
 
 - **Key 3 (VBMD)**: For Variable Block Matrix Diffusion
-  - Example: "MATRIX", "LONGKEY", "VBMDKEY"
+  - Example: "MATRIX", "longkey", "vbmdkey" (both uppercase and lowercase supported)
   - Can be longer, must contain only letters
 
 - **Key 4 (KDPP)**: For Key-Driven Positional Permutation
-  - Example: "PERMUTE", "FINALKEY", "ENDKEY"
-  - Must contain only letters (A-Z)
+  - Example: "PERMUTE", "finalkey", "endkey" (both uppercase and lowercase supported)
+  - Must contain only letters (A-Z, a-z)
 
 ### 3. Example Usage
-- **Plaintext**: `HELLO`
-- **Key 1**: `KEYA`
-- **Key 2**: `KEYB`
-- **Key 3**: `MATRIX`
-- **Key 4**: `PERMUTE`
+- **Plaintext**: `Hello` or `hello` (both work)
+- **Key 1**: `keya` or `KEYA` (both work)
+- **Key 2**: `keyb` or `KEYB` (both work)
+- **Key 3**: `matrix` or `MATRIX` (both work)
+- **Key 4**: `permute` or `PERMUTE` (both work)
 
 ### 4. Step-by-Step Process
-1. Write your message in the "Plaintext" box
-2. Enter 4 different keys in the 4 key boxes
+1. Write your message in the "Plaintext" box (uppercase or lowercase)
+2. Enter 4 different keys in the 4 key boxes (uppercase or lowercase)
 3. Click "Encrypt" button
 4. The encrypted text will appear in "Ciphertext" box
 5. To decrypt: Make sure you have the same 4 keys and click "Decrypt"
 
 ### 5. Important Rules
-- **All keys must contain only letters (A-Z)** - no numbers or symbols
+- **All keys must contain only letters (A-Z, a-z)** - no numbers or symbols
 - **You must remember the same 4 keys** to decrypt your message later
 - **Each key should be different** for better security
 - **For decryption**: You must use exactly the same 4 keys that were used for encryption
+- **Case insensitive**: The system handles both uppercase and lowercase input
 
 ## Example Usage
 
